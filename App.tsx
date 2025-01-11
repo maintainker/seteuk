@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -25,6 +18,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import {NavigationContainer} from '@react-navigation/native';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -32,7 +27,8 @@ type SectionProps = PropsWithChildren<{
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
-    <View style={styles.sectionContainer}>
+    <SafeAreaView style={styles.sectionContainer}>
+      <NavigationContainer>
       <Text
         style={[
           styles.sectionTitle,
@@ -51,7 +47,8 @@ function Section({children, title}: SectionProps): JSX.Element {
         ]}>
         {children}
       </Text>
-    </View>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 
