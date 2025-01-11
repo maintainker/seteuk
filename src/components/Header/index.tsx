@@ -18,8 +18,8 @@ const NavigationHeader= () =>{
     const temp = 1;
 
     const createHeaderTitle = (name:string, title:string ) =>{
-        const CountingList = ["home"];
-        if(CountingList.includes(name)){
+        const countingList = ["home"];
+        if(countingList.includes(name)){
             return `${title} (${temp})`
         }
         return "없음"

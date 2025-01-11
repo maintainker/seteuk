@@ -12,9 +12,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationHeader} from "./components";
 import {MemoListScreen} from "./screens";
 import {RouterParamList} from "./type/routerParam";
+import {QueryClient, QueryClientProvider} from 'react-query';
+import memoListData from "../data/memos.json"
+import {queryKeyConstant} from "./constance"
 
 
 const Stack = createNativeStackNavigator<RouterParamList>();
+const queryClient = new QueryClient();
+queryClient.setQueryData(queryKeyConstant.getMemoList, memoListData)
 
 
 function App() {
@@ -26,28 +31,30 @@ function App() {
     };
 
     return (
-        <SafeAreaView style={backgroundStyle}>
-            <StatusBar
-                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                backgroundColor={backgroundStyle.backgroundColor}
-            />
-            <NavigationContainer>
-                <Stack.Navigator
-                    initialRouteName="home"
-                    screenOptions={() => ({
-                        header: () => (
-                            <NavigationHeader
-                            />
-                        ),
-                    })}>
-                    <Stack.Screen
-                        name="home"
-                        component={MemoListScreen}
-                        initialParams={{title: "123123123"}}
-                    />
-                </Stack.Navigator>
-            </NavigationContainer>
-        </SafeAreaView>
+        <QueryClientProvider client={queryClient}>
+            <SafeAreaView style={backgroundStyle}>
+                <StatusBar
+                    barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                    backgroundColor={backgroundStyle.backgroundColor}
+                />
+                <NavigationContainer>
+                    <Stack.Navigator
+                        initialRouteName="home"
+                        screenOptions={() => ({
+                            header: () => (
+                                <NavigationHeader
+                                />
+                            ),
+                        })}>
+                        <Stack.Screen
+                            name="home"
+                            component={MemoListScreen}
+                            initialParams={{title: "123123123"}}
+                        />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </SafeAreaView>
+        </QueryClientProvider>
     );
 }
 
