@@ -1,6 +1,9 @@
 import {Text, TouchableOpacity, View} from "react-native";
 import styles from "./index.module"
 import {Icon} from "../../../../components";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {RouterParamList} from "../../../../type/routerParam";
 
 interface Props{
     item:Memo,
@@ -8,8 +11,12 @@ interface Props{
 }
 
 const MemoItem = ({item,onPressDelete}:Props) =>{
+    const navigation = useNavigation<NativeStackNavigationProp<RouterParamList, "home">>();
+    const handlePressContent = () =>{
+        navigation.navigate("detail", {id: item.id, title: item.title})
+    }
     return <View style={styles.container}>
-        <TouchableOpacity style={styles.contents}>
+        <TouchableOpacity style={styles.contents} onPress={handlePressContent}>
             <View style={styles.header}>
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.date}>{item.updatedAt}</Text>

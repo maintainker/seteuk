@@ -1,6 +1,7 @@
 const getMemoList = ["memo", "list"];
 
-
-export default {
+const QueryKeys ={
     getMemoList
 }
+
+export default QueryKeys

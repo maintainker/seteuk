@@ -11,7 +11,6 @@ function generateRandomId() {
         return result;
     };
 
-    // 생성할 ID 형식에 맞게 각 구간을 생성
     const segment1 = generateSegment(5);
     const segment2 = generateSegment(4);
     const segment3 = generateSegment(5);
@@ -72,6 +71,7 @@ const init = () =>{
         return data
     }
     const getMemo = (id:string)=>{
+        console.log("id: ",id)
         return data.find(memo => memo.id === id)
     }
     return { addMemo , deleteMemo, updateMemo, getAllMemo, getMemo}

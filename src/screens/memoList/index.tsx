@@ -12,9 +12,7 @@ interface MemoContent {
 }
 
 const MomoList = () =>{
-    const {data,refetch} = useQuery(queryKeyConstant.getMemoList,mock.getAllMemo, {
-        enabled:false
-    })
+    const {data,refetch} = useQuery(queryKeyConstant.getMemoList,mock.getAllMemo)
     const addMemo = useMutation< void, Error,MemoContent>({
         mutationKey:["memo", "create"],
         async mutationFn({title = "임시 메모입니다.",description= "임시추가메모입니다."}) {

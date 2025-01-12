@@ -13,5 +13,7 @@ export type NavigationPropType<T> = {
 
 
 export type RouterParamList = {
-    Home: NavigationPropType<DefaultParams>
+    home: DefaultParams,
+    detail: { id: string },
+    edit: { id : string}
 }

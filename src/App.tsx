@@ -1,16 +1,12 @@
-import {SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from "react-native";
+import {SafeAreaView,  StatusBar,  useColorScheme} from "react-native";
 import {
     Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions
 } from "react-native/Libraries/NewAppScreen";
 import React from "react";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationHeader} from "./components";
-import {MemoListScreen} from "./screens";
+import {MemoDetail, MemoEdit, MemoListScreen} from "./screens";
 import {RouterParamList} from "./type/routerParam";
 import {QueryClient, QueryClientProvider} from 'react-query';
 import memoListData from "../data/memos.json"
@@ -50,6 +46,8 @@ function App() {
                             component={MemoListScreen}
                             initialParams={{title: "메모 리스트"}}
                         />
+                        <Stack.Screen name="detail" component={MemoDetail} />
+                        <Stack.Screen name="edit" component={MemoEdit} />
                     </Stack.Navigator>
                 </NavigationContainer>
             </SafeAreaView>
