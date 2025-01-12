@@ -27,3 +27,5 @@ npm run ios
 # 아직 미구현 한 사항
 [] listpage 버튼 바로 위에 메모 위치  
 [] querykey 정리  
+[] useNavigation Type 수정
+[] AOS 실행 및 설정

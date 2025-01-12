@@ -11,14 +11,15 @@ interface Props {
 }
 
 type AppRouteProp = RouteProp<{
-    home: {title?: string};
+    pages: {title?: string,id?: string};
 }>;
 
 
 const getData = () =>{
     return memoListData as Memo[];
 }
-const rootScreens = ["home"]
+const rootScreens = ["home"];
+
 
 const NavigationHeader= () => {
 
@@ -27,11 +28,13 @@ const NavigationHeader= () => {
     const {data} = useQuery(queryKeyConstant.getMemoList,getData, {
         enabled:false
     })
-
     const createHeaderTitle = (name:string, title:string ) =>{
         const countingList = ["home"];
+        const detailList = ['detail','edit'];
         if(countingList.includes(name)){
             return `${title} (${data?.length || 0})`
+        }else if(detailList.includes(name)) {
+            return data?.find((memo) => memo.id === route.params.id)?.title || ''
         }
         return title
     }
