@@ -3,10 +3,11 @@ import styles from "./index.module"
 import {Icon} from "../../../../components";
 
 interface Props{
-    item:Memo
+    item:Memo,
+    onPressDelete:(id: string) =>void
 }
 
-const MemoItem = ({item}:Props) =>{
+const MemoItem = ({item,onPressDelete}:Props) =>{
     return <View style={styles.container}>
         <TouchableOpacity style={styles.contents}>
             <View style={styles.header}>
@@ -20,7 +21,7 @@ const MemoItem = ({item}:Props) =>{
                 {item.description}
             </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => onPressDelete(item.id)}>
             <Icon width={24} height={24} fill="#666" name={"cancel"} />
         </TouchableOpacity>
     </View>

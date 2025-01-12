@@ -34,7 +34,7 @@ const init = () =>{
     const addMemo= (title:string, description: string) =>{
         let id;
         const dataIdList = data.map(memo => memo.id);
-        while( typeof id === "string" && !dataIdList.includes(id)){
+        while( typeof id !== "string" || dataIdList.includes(id)){
             id = generateRandomId();
         }
         data.push({
