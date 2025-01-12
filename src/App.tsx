@@ -42,14 +42,13 @@ function App() {
                         initialRouteName="home"
                         screenOptions={() => ({
                             header: () => (
-                                <NavigationHeader
-                                />
+                                <NavigationHeader />
                             ),
                         })}>
                         <Stack.Screen
                             name="home"
                             component={MemoListScreen}
-                            initialParams={{title: "123123123"}}
+                            initialParams={{title: "메모 리스트"}}
                         />
                     </Stack.Navigator>
                 </NavigationContainer>

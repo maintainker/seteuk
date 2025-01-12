@@ -11,7 +11,7 @@ const MomoList = () =>{
     const {data} = useQuery(queryKeyConstant.getMemoList,getData, {
         enabled:false
     })
-    console.log(data);
+    // console.log(data);
 
     return (<View>
         <Text>{data?.[0]?.title}</Text>
