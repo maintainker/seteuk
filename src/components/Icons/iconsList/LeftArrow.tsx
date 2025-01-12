@@ -1,6 +1,7 @@
 import Svg, {G, Path} from "react-native-svg";
+import {IconsProps} from "./index";
 
-const LeftArrow = ({width, height, fill}) =>{
+const LeftArrow = ({width, height, fill}:IconsProps) =>{
    return  <Svg viewBox="0 -6.5 38 38" width={width} height={height}>
         <G id="SVGRepo_iconCarrier" fill={fill} fillRule="nonzero">
             <G

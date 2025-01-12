@@ -1,4 +1,5 @@
 import LeftArrow from "./LeftArrow"
+import Cancel from "./Cancel";
 
 export interface IconsProps{
     height?: number,
@@ -8,6 +9,9 @@ export interface IconsProps{
 const IconsList  ={
     leftArrow: {
         Component: LeftArrow
+    },
+    cancel: {
+        Component: Cancel
     }
 }
 
