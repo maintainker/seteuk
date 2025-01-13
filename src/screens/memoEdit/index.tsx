@@ -6,6 +6,7 @@ import mock from "../../../data/data";
 import {useNavigation, useRoute} from "@react-navigation/native";
 import type {RouteProp} from "@react-navigation/core/src/types";
 import {useEffect, useState} from "react";
+import QueryKeys from "../../constance/queryKeys/memoQueryKeys";
 // import styles from "../memoDetail/index.module";
 
 const MemoEdit = () =>{
@@ -16,7 +17,7 @@ const MemoEdit = () =>{
 
     const {data:memo,isLoading} =useQuery(["memo","detail", id],()=> mock.getMemo(id));
     const editMutation = useMutation({
-        mutationKey:['memo', "edit", id],
+        mutationKey: QueryKeys.createKeys("edit", id),
         async mutationFn(){
             mock.updateMemo(memo?.id|| '', title, description);
             await queryClient.invalidateQueries('memo')

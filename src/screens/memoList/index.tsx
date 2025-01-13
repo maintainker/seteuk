@@ -5,6 +5,7 @@ import MemoItem from "./component/MemoItem";
 import styles from "./index.module";
 import {DefaultButton} from "../../components";
 import mock from "../../../data/data"
+import QueryKeys from "../../constance/queryKeys/memoQueryKeys";
 
 interface MemoContent {
     title: string,
@@ -14,7 +15,7 @@ interface MemoContent {
 const MomoList = () =>{
     const {data,refetch} = useQuery(queryKeyConstant.getMemoList,mock.getAllMemo)
     const addMemo = useMutation< void, Error,MemoContent>({
-        mutationKey:["memo", "create"],
+        mutationKey: QueryKeys.createMemo,
         async mutationFn({title = "임시 메모입니다.",description= "임시추가메모입니다."}) {
             mock.addMemo(title, description); // mock.addMemo 호출
             await refetch();
@@ -22,7 +23,7 @@ const MomoList = () =>{
         }
     );
     const deleteMemo = useMutation<void,Error, string>({
-        mutationKey:["memo", "delete"],
+        mutationKey: QueryKeys.deleteMemo,
         async mutationFn(id){
             mock.deleteMemo(id);
             await refetch();

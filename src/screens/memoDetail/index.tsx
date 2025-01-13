@@ -15,9 +15,9 @@ const MemoDetail = () =>{
     if(!route.params.id){
         return navigation.goBack()
     }
-    const {data:memo,isLoading} =useQuery(["memo","detail", id],()=> mock.getMemo(id));
+    const {data:memo,isLoading} =useQuery(QueryKeys.createKeys("detail", id),()=> mock.getMemo(id));
     const deleteMutation = useMutation<void, Error, string>({
-        mutationKey:["memo", "delete"],
+        mutationKey: QueryKeys.deleteMemo,
         async mutationFn(id){
             mock.deleteMemo(id);
             await queryClient.invalidateQueries(QueryKeys.getMemoList);

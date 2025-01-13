@@ -9,9 +9,6 @@ npm start
 npm run android
 
 # Start IOS App
-cd ios 
-pod install
-cd ..
 npm run ios
 ```
 
@@ -24,9 +21,7 @@ npm run ios
 
 # 고민되었던 부분 및 개선하고 싶은 사항
 - edit detail 페이지 title 어떻게 할지
+- 제가 AOS설정이 안되어있어서 그런지 실행이 안되었습니다. 이 점을 개선하고싶습니다.
 
-# 아직 미구현 한 사항
-[] listpage 버튼 바로 위에 메모 위치  
-[] querykey 정리  
+# 아직 미구현 한 사항 
 [] useNavigation Type 수정
-[] AOS 실행 및 설정
