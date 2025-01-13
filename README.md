@@ -6,7 +6,7 @@
 npm start
 
 # Start Android App 
-npm run android
+안드로이드는 미구현 했습니다. 죄송합니다.
 
 # Start IOS App
 npm run ios
