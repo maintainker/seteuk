@@ -30,6 +30,7 @@ const MomoList = () =>{
     })
     return (<View style={styles.container}>
         <FlatList<Memo>
+        style={ styles.tmp}
         keyExtractor={item =>`home-list-${item.id}`}
         data={data} renderItem={({item}) => <MemoItem item={item} onPressDelete={deleteMemo.mutate}  />}
         />

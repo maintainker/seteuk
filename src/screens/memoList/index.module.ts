@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
         marginBottom: 12,
         marginTop: 0,
+    },
+    tmp:{
+        marginBottom:0
     }
 })
 export default styles

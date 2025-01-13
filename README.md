@@ -23,6 +23,7 @@ npm run ios
 # 구현한 내용
 
 # 고민되었던 부분 및 개선하고 싶은 사항
+- edit detail 페이지 title 어떻게 할지
 
 # 아직 미구현 한 사항
 [] listpage 버튼 바로 위에 메모 위치  
